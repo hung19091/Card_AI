@@ -45,6 +45,7 @@ namespace Card_AI.Models
                     "Damage" => targetType.HasValue ? new DamageEffect(eff.Value, targetType.Value) : new DamageEffect(eff.Value),
                     "Heal" => targetType.HasValue ? new HealEffect(eff.Value, targetType.Value) : new HealEffect(eff.Value),
                     "Draw" => new DrawEffect(eff.Value),
+                    "BurnDeck" => targetType.HasValue ? new BurnDeckEffect(eff.Value, targetType.Value) : new BurnDeckEffect(eff.Value),
                     _ => throw new Exception($"未知效果: {eff.Type}")
                 };
                 card.With(effect);

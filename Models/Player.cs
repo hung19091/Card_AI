@@ -115,7 +115,7 @@ public class Player
             if (Deck.Draw() is Card card)
             {
                 Graveyard.Add(card);
-                Console.WriteLine($"{Name} 的牌組被燒掉了1張 {card.Name}！");
+                Console.WriteLine($"{Name} 的 {card.Name} 進入了廢牌堆。");
             }
         }
     }
@@ -145,7 +145,7 @@ public class Player
         // 2. 執行扣費與邏輯
         this.Mana -= card.ManaCost;
 
-        // 3. 呼叫卡片本身的 Play (傳入 3 個參數)
+        // 3. 呼叫卡片本身的 Play (傳入 2 個參數)
         card.Play(this, target);
 
         // 重點：呼叫封裝好的方法，從手牌移除 & 自動進墳場

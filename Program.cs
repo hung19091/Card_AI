@@ -9,27 +9,22 @@ Player enemy = new("惡魔", 40, 5, enemyDeck);
 
 // 2. 準備牌組 (通常會用工廠模式或 JSON 讀取)
 /*
-myDeck.AddCard(Card.Create("火球術", 2).With(new DamageEffect(30))
-        .WithDescription("發射一顆熾熱火球，造成 30 點傷害"));
-myDeck.AddCard(Card.Create("吸血術", 1).With(new DamageEffect(15)).With(new HealEffect(15))
-        .WithDescription("吸取敵人的生命，造成 15 點傷害並回復 15 點生命"));
-myDeck.AddCard(Card.Create("傷藥", 1).With(new HealEffect(20))
-        .WithDescription("使用傷藥，回復 20 點生命"));
-myDeck.AddCard(Card.Create("貪婪而貪婪之壺", 2).With(new DamageEffect(30, TargetType.Self)).With(new DrawEffect(2))
+myDeck.AddCard(Card.Create("貪婪而謙虛之壺", 2).With(new DamageEffect(30, TargetType.Self)).With(new DrawEffect(2))
         .WithDescription("從壺中釋放出強大的能量，犧牲自己 30 點生命並抽 2 張牌"));
 */
 
 // 啟動遊戲時載入一次圖鑑
 CardDatabase.Initialize("Cards.json");
 
-for (int i = 0; i < 2; i++) myDeck.AddCard(CardDatabase.GetCard("貪婪而貪婪之壺")!);
+for (int i = 0; i < 2; i++) myDeck.AddCard(CardDatabase.GetCard("貪婪而謙虛之壺")!);
 myDeck.AddCard(CardDatabase.GetCard("火球術")!);
 myDeck.AddCard(CardDatabase.GetCard("吸血術")!);
 myDeck.AddCard(CardDatabase.GetCard("傷藥")!);
+myDeck.AddCard(CardDatabase.GetCard("盲目的埋葬")!);
 myDeck.Shuffle();
 
+for (int i = 0; i < 2; i++) enemyDeck.AddCard(CardDatabase.GetCard("普通攻擊")!);
 enemyDeck.AddCard(CardDatabase.GetCard("火球術")!);
-enemyDeck.AddCard(CardDatabase.GetCard("普通攻擊")!);
 enemyDeck.AddCard(CardDatabase.GetCard("爛傷藥")!);
 enemyDeck.Shuffle();
 

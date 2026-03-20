@@ -13,7 +13,7 @@ namespace Card_AI.Models
             return new ComplexCard(name, cost);
         }
 
-        // 統一為 3 個參數
+        // 統一為 2 個參數
         public abstract void Play(Player caster, Player target);
     }
 
