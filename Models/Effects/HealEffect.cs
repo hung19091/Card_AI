@@ -2,7 +2,7 @@
 
 namespace Card_AI.Models.Effects
 {
-    public class HealEffect(int amount, TargetType targetType = TargetType.Self) : ICardEffect
+    public class HealEffect(int amount, TargetType targetType) : ICardEffect
     {
         public void Execute(Player caster, Player target)
         {

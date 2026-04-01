@@ -39,15 +39,16 @@ namespace Card_AI.Models
                     _ => null
                 };
 
+                // 在 CardDatabase.GetCard 內部
                 ICardEffect effect = eff.Type switch
                 {
-                    // 如果 targetType 有值就傳進去，沒值 (null) 就會觸發建構子的預設值
-                    "Damage" => targetType.HasValue ? new DamageEffect(eff.Value, targetType.Value) : new DamageEffect(eff.Value),
-                    "Heal" => targetType.HasValue ? new HealEffect(eff.Value, targetType.Value) : new HealEffect(eff.Value),
+                    "Damage" => new DamageEffect(eff.Value, targetType ?? TargetType.Opponent),
+                    "Heal" => new HealEffect(eff.Value, targetType ?? TargetType.Self),
                     "Draw" => new DrawEffect(eff.Value),
-                    "BurnDeck" => targetType.HasValue ? new BurnDeckEffect(eff.Value, targetType.Value) : new BurnDeckEffect(eff.Value),
-                    _ => throw new Exception($"未知效果: {eff.Type}")
+                    "BurnDeck" => new BurnDeckEffect(eff.Value, targetType ?? TargetType.Opponent),
+                    _ => throw new NotSupportedException($"[錯誤] 尚未實作效果類型: {eff.Type}")
                 };
+
                 card.With(effect);
             }
             return card;

@@ -81,8 +81,7 @@
     "Effects": [
       {
         "Type": "Heal",
-        "Value": 20,
-        "Target": "Self"
+        "Value": 20
       },
       {
         "Type": "BurnDeck",

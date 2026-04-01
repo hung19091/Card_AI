@@ -2,7 +2,7 @@
 
 namespace Card_AI.Models.Effects
 {
-    public class BurnDeckEffect(int count, TargetType targetType = TargetType.Self) : ICardEffect
+    public class BurnDeckEffect(int count, TargetType targetType) : ICardEffect
     {
         public void Execute(Player caster, Player target)
         {

@@ -2,7 +2,7 @@
 
 namespace Card_AI.Models.Effects
 {
-    public class DamageEffect(int amount, TargetType targetType = TargetType.Opponent) : ICardEffect
+    public class DamageEffect(int amount, TargetType targetType) : ICardEffect
     {
         public void Execute(Player caster, Player target)
         {
